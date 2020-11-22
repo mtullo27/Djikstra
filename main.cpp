@@ -18,7 +18,7 @@ int min(int a, int b){
 //helper function to print vectors
 void printMatrix(vector<vector<int>> v){
   for(int i = 0; i < v.size(); i++){
-    for(int j = 0; i <v[i].size(); j++){
+    for(int j = 0; j <v[i].size(); j++){
       cout << v[i][j] << " ";
     }
     cout << endl;
@@ -37,11 +37,6 @@ int main(){
   in2[4] = {-1, -1, 3, 6, 0, 6, 8};
   in2[5] = {7, -1, 8, -1, 6, 0, 12};
   in2[6] = {-1, -1, -1, -1, 8, 12, 0};
-  for(int i = 0; i < in2.size(); i++){
-    for(int j = 0; i <in2[i].size(); j++){
-      cout << int2[i][j] << " ";
-    }
-    cout << endl;
-  }
+  printMatrix(in2);
   return 0;
 }
