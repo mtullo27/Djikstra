@@ -27,7 +27,7 @@ void printMatrix(vector<vector<int>> v){
 int main(){
     //setting up the inputs
   vector<vector<int>> in1;
-  vector<vector<int>> in2;
+  vector<vector<int>> in2(7);
   vector<vector<int>> in3;
   //Test a in vector in1, b in in2 and c in in3
   in2[0] = {0, 2, 4, -1, -1, 7, -1};
@@ -37,5 +37,6 @@ int main(){
   in2[4] = {-1, -1, 3, 6, 0, 6, 8};
   in2[5] = {7, -1, 8, -1, 6, 0, 12};
   in2[6] = {-1, -1, -1, -1, 8, 12, 0};
+  printMatrix(in2);
   return 0;
 }
