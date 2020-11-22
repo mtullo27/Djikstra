@@ -37,6 +37,11 @@ int main(){
   in2[4] = {-1, -1, 3, 6, 0, 6, 8};
   in2[5] = {7, -1, 8, -1, 6, 0, 12};
   in2[6] = {-1, -1, -1, -1, 8, 12, 0};
-  printMatrix(in2);
+  for(int i = 0; i < in2.size(); i++){
+    for(int j = 0; j <in2[i].size(); j++){
+      cout << in2[i][j] << " ";
+    }
+    cout << endl;
+  }
   return 0;
 }
