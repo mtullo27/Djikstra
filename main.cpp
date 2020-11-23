@@ -15,7 +15,7 @@ using namespace std;
 int min(vector<int> v, vector<int> inc){
   int min = INT_MAX, min_index;
   for(int i = 0; i<v.size(); i++){
-    if(inc[i] == 0 && v[i] < min)
+    if(inc[i] == 0 && v[i] <= min)
       min = v[i], min_index = i;
   }
   return min_index;
