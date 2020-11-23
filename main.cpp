@@ -82,21 +82,17 @@ vector<vector<int>> djikstra(vector<vector<int>> v, int s){
 }
 
 int main(){
-    //setting up the inputs
-  vector<vector<int>> in1;
-  vector<vector<int>> in2(7);
-  vector<vector<int>> in3;
-  //Test a in vector in1, b in in2 and c in in3
-  in2[0] = {0, 2, 4, INT_MAX, INT_MAX, 7, INT_MAX};
-  in2[1] = {2, 0, 3, 3, INT_MAX, INT_MAX, INT_MAX};
-  in2[2] = {4, 3, 0, 4, 3, 8, INT_MAX};
-  in2[3] = {INT_MAX, 3, 4, 0, 6, INT_MAX, INT_MAX};
-  in2[4] = {INT_MAX, INT_MAX, 3, 6, 0, 6, 8};
-  in2[5] = {7, INT_MAX, 8, INT_MAX, 6, 0, 12};
-  in2[6] = {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 8, 12, 0};
+  //setting up the inputs
+  vector<vector<int>> in(6);
+  in2[0] = {0, 2, 5, 1, INT_MAX, INT_MAX};
+  in2[1] = {2, 0, 3, 2, INT_MAX, INT_MAX};
+  in2[2] = {5, 3, 0, 3, 1, 5};
+  in2[3] = {1, 2, 3, 0, 1, INT_MAX};
+  in2[4] = {INT_MAX, INT_MAX, 1, 1, 0, 2};
+  in2[5] = {INT_MAX, INT_MAX, 5, INT_MAX, 2, 0};
   cout<<"===========INPUT MATRIX=========="<<endl;
-  printMatrix(in2);
+  printMatrix(in);
   cout<< endl;
-  vector<vector<int>> temp = djikstra(in2, 1);
+  vector<vector<int>> temp = djikstra(in, 1);
   return 0;
 }
