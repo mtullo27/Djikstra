@@ -1,3 +1,4 @@
+#include <limits.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -12,10 +13,10 @@ using namespace std;
 
 //basic helper function to determine which value is smaller
 int min(vector<int> v, vector<int> inc){
-  int min = -1, min_index;
-  for(int i = 0; i<v.size(); v++){
+  int min = INT_MAX, min_index;
+  for(int i = 0; i<v.size(); i++){
     if(inc[i] == 0 && v[i] < min)
-      min = v[i], min_index = v;
+      min = v[i], min_index = i;
   }
   return min_index;
 }
@@ -33,19 +34,51 @@ void printMatrix(vector<vector<int>> v){
 }
 
 //implementation taking a matrix and a starting node
+//first vector is the distances and second vector is the order
 vector<vector<int>> djikstra(vector<vector<int>> v, int s){
-  int small = 0;
+  //return vector
+  vector<vector<int>> ret;
+  int small = INT_MAX;
   //vector to keep track of visited nodes. 0 is false, 1 is true
   vector<int> visited;
   //vector to keep track of order visited. pushes back node number when visited
   vector<int> order;
+  order.push_back(s);
   //vector to keep track of distances from source node
-  vector<int> distance
-  for(int i = 0; i<v[s].size; i++)
+  vector<int> distance;
+  for(int i = 0; i<v[s].size(); i++)
     visited.push_back(0), distance.push_back(INT_MAX);
-  for(int i = 0; i<v[s].size(); i++){
-    small = min(small, v[s][i]);
+  distance[s] = 0;
+  for(int i = 0; i < v.size()-1; i++){
+    cout<< "===========STEP " << i << " START============" << endl; 
+    //finding the min distance to next node
+    small = min(distance, visited);
+    //Marking the next node as visited
+    visited[small] = 1;
+    order.push_back(small);
+    //changing the distance vectors
+    for(int j = 0; j< v.size(); j++){
+      //updating the distance only if it has not been visited yet, if there is a means of getting to the new node, and the new edge weight is less than its current edge weight
+      if(visited[j] == 0 && v[small][j] != INT_MAX && distance[small] != INT_MAX && distance[small] + v[small][j] < distance[j])
+	distance[j] = distance[small] + v[small][j];
+    }
+    //printing in an easy to read format
+    cout << "Visited Nodes: ";
+    printVector(order);
+    cout << endl;
+    cout<< "Distances to each Node: ";
+    printVectors(distance);
+    cout << endl;
   }
+  ret.push_back(distance);
+  ret.push_back(order);
+  return ret;
+}
+//helper method for printing vectors
+void printVector(vector<int> v){
+  for(int i = 0; i<v.size(); i++)
+    cout << v[i] << " ";
+  cout << endl;
 }
 int main(){
     //setting up the inputs
@@ -62,5 +95,6 @@ int main(){
   in2[6] = {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 8, 12, 0};
 
   printMatrix(in2);
+  vector<vector<int>> temp = djikstra(in2, 0);
   return 0;
 }
