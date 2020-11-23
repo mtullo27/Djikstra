@@ -84,12 +84,11 @@ vector<vector<int>> djikstra(vector<vector<int>> v, int s){
 int main(){
   //setting up the inputs
   vector<vector<int>> in(6);
-  in[0] = {0, 2, 5, 1, INT_MAX, INT_MAX};
-  in[1] = {2, 0, 3, 2, INT_MAX, INT_MAX};
-  in[2] = {5, 3, 0, 3, 1, 5};
-  in[3] = {1, 2, 3, 0, 1, INT_MAX};
-  in[4] = {INT_MAX, INT_MAX, 1, 1, 0, 2};
-  in[5] = {INT_MAX, INT_MAX, 5, INT_MAX, 2, 0};
+  in[0] = {0, 2, 1, 1, INT_MAX, INT_MAX};
+  in[1] = {2, 0, 6, 5, INT_MAX, INT_MAX};
+  in[2] = {1, 6, 0, 3, 6, 8};
+  in[3] = {1, 5, 3, 0, 3, INT_MAX};
+  in[4] = {INT_MAX, INT_MAX, 6, 3, 0, 8};
   cout<<"===========INPUT MATRIX=========="<<endl;
   printMatrix(in);
   cout<< endl;
