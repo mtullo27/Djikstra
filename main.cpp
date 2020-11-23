@@ -53,13 +53,14 @@ int main(){
   vector<vector<int>> in2(7);
   vector<vector<int>> in3;
   //Test a in vector in1, b in in2 and c in in3
-  in2[0] = {0, 2, 4, -1, -1, 7, -1};
-  in2[1] = {2, 0, 3, 3, -1, -1, -1};
-  in2[2] = {4, 3, 0, 4, 3, 8, -1};
-  in2[3] = {-1, 3, 4, 0, 6, -1, -1};
-  in2[4] = {-1, -1, 3, 6, 0, 6, 8};
-  in2[5] = {7, -1, 8, -1, 6, 0, 12};
-  in2[6] = {-1, -1, -1, -1, 8, 12, 0};
+  in2[0] = {0, 2, 4, INT_MAX, INT_MAX, 7, INT_MAX};
+  in2[1] = {2, 0, 3, 3, INT_MAX, INT_MAX, INT_MAX};
+  in2[2] = {4, 3, 0, 4, 3, 8, INT_MAX};
+  in2[3] = {INT_MAX, 3, 4, 0, 6, INT_MAX, INT_MAX};
+  in2[4] = {INT_MAX, INT_MAX, 3, 6, 0, 6, 8};
+  in2[5] = {7, INT_MAX, 8, INT_MAX, 6, 0, 12};
+  in2[6] = {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 8, 12, 0};
+
   printMatrix(in2);
   return 0;
 }
