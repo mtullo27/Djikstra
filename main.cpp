@@ -33,6 +33,13 @@ void printMatrix(vector<vector<int>> v){
   }
 }
 
+//helper method for printing vectors
+void printVector(vector<int> v){
+  for(int i = 0; i<v.size(); i++)
+    cout << v[i] << " ";
+  cout << endl;
+}
+
 //implementation taking a matrix and a starting node
 //first vector is the distances and second vector is the order
 vector<vector<int>> djikstra(vector<vector<int>> v, int s){
@@ -74,12 +81,7 @@ vector<vector<int>> djikstra(vector<vector<int>> v, int s){
   ret.push_back(order);
   return ret;
 }
-//helper method for printing vectors
-void printVector(vector<int> v){
-  for(int i = 0; i<v.size(); i++)
-    cout << v[i] << " ";
-  cout << endl;
-}
+
 int main(){
     //setting up the inputs
   vector<vector<int>> in1;
