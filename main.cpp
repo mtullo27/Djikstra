@@ -93,6 +93,6 @@ int main(){
   cout<<"===========INPUT MATRIX=========="<<endl;
   printMatrix(in);
   cout<< endl;
-  vector<vector<int>> temp = djikstra(in, 1);
+  vector<vector<int>> temp = djikstra(in, 0);
   return 0;
 }
