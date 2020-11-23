@@ -50,13 +50,12 @@ vector<vector<int>> djikstra(vector<vector<int>> v, int s){
   vector<int> visited;
   //vector to keep track of order visited. pushes back node number when visited
   vector<int> order;
-  order.push_back(s);
   //vector to keep track of distances from source node
   vector<int> distance;
   for(int i = 0; i<v[s].size(); i++)
     visited.push_back(0), distance.push_back(INT_MAX);
   distance[s] = 0;
-  for(int i = 0; i < v.size()-1; i++){
+  for(int i = 0; i < v.size(); i++){
     cout<< "===========STEP " << i << " START============" << endl; 
     //finding the min distance to next node
     small = min(distance, visited);
@@ -74,7 +73,7 @@ vector<vector<int>> djikstra(vector<vector<int>> v, int s){
     printVector(order);
     cout << endl;
     cout<< "Distances to each Node: ";
-    printVectors(distance);
+    printVector(distance);
     cout << endl;
   }
   ret.push_back(distance);
@@ -95,8 +94,9 @@ int main(){
   in2[4] = {INT_MAX, INT_MAX, 3, 6, 0, 6, 8};
   in2[5] = {7, INT_MAX, 8, INT_MAX, 6, 0, 12};
   in2[6] = {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 8, 12, 0};
-
+  cout<<"===========INPUT MATRIX=========="<<endl;
   printMatrix(in2);
-  vector<vector<int>> temp = djikstra(in2, 0);
+  cout<< endl;
+  vector<vector<int>> temp = djikstra(in2, 1);
   return 0;
 }
