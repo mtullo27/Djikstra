@@ -11,17 +11,40 @@
 using namespace std;
 
 //basic helper function to determine which value is smaller
-int min(int a, int b){
-    return (a > b)? a:b;
+int min(vector<int> v, vector<int> inc){
+  int min = -1, min_index;
+  for(int i = 0; i<v.size(); v++){
+    if(inc[i] == 0 && v[i] < min)
+      min = v[i], min_index = v;
+  }
+  return min_index;
 }
 
 //helper function to print vectors
 void printMatrix(vector<vector<int>> v){
   for(int i = 0; i < v.size(); i++){
     for(int j = 0; j <v[i].size(); j++){
+      if (j == 0)
+	cout << "[" << i << "] ";
       cout << v[i][j] << " ";
     }
     cout << endl;
+  }
+}
+
+//implementation taking a matrix and a starting node
+vector<vector<int>> djikstra(vector<vector<int>> v, int s){
+  int small = 0;
+  //vector to keep track of visited nodes. 0 is false, 1 is true
+  vector<int> visited;
+  //vector to keep track of order visited. pushes back node number when visited
+  vector<int> order;
+  //vector to keep track of distances from source node
+  vector<int> distance
+  for(int i = 0; i<v[s].size; i++)
+    visited.push_back(0), distance.push_back(INT_MAX);
+  for(int i = 0; i<v[s].size(); i++){
+    small = min(small, v[s][i]);
   }
 }
 int main(){
